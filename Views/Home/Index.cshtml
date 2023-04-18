@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2>Documents</h2>
+        <div class="form-inline">
+            <form class="form-inline" action="/Home/Index" method="post">
+                <input  class="form-control" name="filter" id="filter" type="text" placeholder="Type..">
+                <select class="form-inline" name="match" id="match"> 
+                <option value="true">Match All</option>
+                <option value="false">Match Any</option>
+                </select>
+                <button type="submit" id="button" class="btn btn-info">Search</button>
+            </form>
+            
+        </div>
+         <br>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Title</td>
+                        <td>@item.Content</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
